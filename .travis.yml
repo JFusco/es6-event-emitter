@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "4.1"
+branches:
+  only:
+  - master
+before_install:
+  - npm install -g eslint
+script:
+    - "gulp eslint && npm test"
