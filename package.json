@@ -1,12 +1,16 @@
 {
 	"name": "es6-event-emitter",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Custom event/messaging system for JavaScript es2015",
 	"main": "src/emitter.js",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/JFusco/es6-event-emitter"
+	},
+	"author": {
+		"name": "Joe Fusco",
+		"email": "jfusco311@gmail.com"
 	},
 	"keywords": [
 		"event",
