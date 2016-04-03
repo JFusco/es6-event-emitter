@@ -10,7 +10,7 @@ const $ = gulpLoadPlugins({
 });
 const argv = $.minimist(process.argv.slice(2));
 
-gulp.task('eslint', function(){
+gulp.task('eslint', () => {
 	console.log('\n| Running ESLint |');
 	console.log('+----------------------------------------------------------+');
 
@@ -21,11 +21,11 @@ gulp.task('eslint', function(){
 			.pipe($.eslint.failAfterError());
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
 	gulp.watch(['./src/**/*.js' ], ['eslint']);
 });
 
-gulp.task('test', (cb) => {
+gulp.task('test', cb => {
 	exec('npm test', (err, stdout) => {
 		if(err) throw new $.util.PluginError('test', err);
 
@@ -37,8 +37,8 @@ gulp.task('test', (cb) => {
 	});
 });
 
-gulp.task('default', function(cb){
-	$.runSequence('eslint', 'test', function(){
+gulp.task('default', cb => {
+	$.runSequence('eslint', 'test', () => {
 		$.util.log($.util.colors.green.bold('FINISHED BUILD'));
 
 		if(argv.w){

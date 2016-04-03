@@ -39,16 +39,24 @@ export default class Component extends Emitter {
 }
 
 //-- Create a new component
-cont component = new Component();
+const component = new Component();
+
+//-- Set up functions for listeners
+const action = () => {
+	console.log('action triggered');
+}
+
+const otheraction = data => {
+	console.log(`other action triggered with data ${data}`);
+}
 
 //-- Register listeners
-component.on('component:action', () => {
-	console.log('action triggered');
-});
+component.on('component:action', action);
+component.on('component:otheraction', otheraction);
 
-component.on('component:otheraction', data => {
-	console.log('other action triggered with data', data);
-});
+//-- Remove events
+component.off('component:action', action);
+component.off('component:otheraction', otheraction);
 
 //-- Call methods
 component.someAction();

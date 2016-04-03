@@ -1,8 +1,8 @@
 {
 	"name": "es6-event-emitter",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Custom event/messaging system for JavaScript es2015",
-	"main": "src/emitter.js",
+	"main": "dist/emitter.js",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -24,7 +24,7 @@
 		"es6 events"
 	],
 	"devDependencies": {
-		"babel-core": "~6.6.0",
+		"babel-core": "~6.7.4",
 		"babel-eslint": "~6.0.2",
 		"babel-loader": "~6.2.4",
 		"babel-plugin-transform-runtime": "^6.4.3",
@@ -52,6 +52,8 @@
 		"webpack": "^1.10.5"
 	},
 	"scripts": {
-		"test": "karma start --single-run --no-auto-watch"
+		"test": "karma start --single-run --no-auto-watch",
+		"compile": "babel -d dist/ src/",
+		"prepublish": "npm run compile"
 	}
 }
