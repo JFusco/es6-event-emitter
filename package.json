@@ -1,6 +1,6 @@
 {
 	"name": "es6-event-emitter",
-	"version": "0.0.4",
+	"version": "1.4.0",
 	"description": "Custom event/messaging system for JavaScript es2015",
 	"main": "dist/emitter.js",
 	"license": "MIT",
