@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-	- "4.1"
+  - "4.1"
 branches:
-	only:
-	- master
+  only:
+  - master
 before_install:
-	- npm install -g eslint
-	- npm install -g babel-cli
+  - npm install -g eslint
+  - npm install -g babel-cli
 script:
     - "gulp eslint && npm test"
