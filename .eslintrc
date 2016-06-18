@@ -60,6 +60,13 @@
 		"window": true,
 		"setTimeout": true,
 		"setInterval": true,
-		"WeakMap": true
+		"WeakMap": true,
+		"jasmine": true,
+		"spyOn": true,
+		"describe": true,
+		"beforeEach": true,
+		"afterEach": true,
+		"it": true,
+		"expect": true
 	}
 }

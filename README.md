@@ -1,4 +1,5 @@
 # es6-event-emitter
+[![npm][npm-version-image]][npm-url]
 [![Build Status](https://travis-ci.org/JFusco/es6-event-emitter.svg?branch=master)](https://travis-ci.org/JFusco/es6-event-emitter)
 [![devDependency Status](https://david-dm.org/JFusco/es6-event-emitter/dev-status.svg)](https://david-dm.org/JFusco/es6-event-emitter#info=devDependencies)
 
@@ -41,7 +42,7 @@ export default class Component extends Emitter {
 //-- Create a new component
 const component = new Component();
 
-//-- Set up functions for listeners
+//-- Set up functions for listeners - best practice in case you want to remove them later.
 const action = () => {
 	console.log('action triggered');
 }
@@ -53,10 +54,6 @@ const otheraction = data => {
 //-- Register listeners
 component.on('component:action', action);
 component.on('component:otheraction', otheraction);
-
-//-- Remove events
-component.off('component:action', action);
-component.off('component:otheraction', otheraction);
 
 //-- Call methods
 component.someAction();
@@ -76,3 +73,6 @@ npm test
 ## License ##
 
  * [MIT License](http://www.opensource.org/licenses/mit-license.php)
+ 
+[npm-url]: https://npmjs.com/package/es6-event-emitter
+[npm-version-image]: https://img.shields.io/npm/v/npm.svg?maxAge=2592000

@@ -14,7 +14,7 @@ gulp.task('eslint', () => {
 	console.log('\n| Running ESLint |');
 	console.log('+----------------------------------------------------------+');
 
-	return gulp.src(['./src/**/*.js', '!node_modules/**'])
+	return gulp.src(['./src/**/*.js', './spec/**/*.js', '!node_modules/**'])
 			.pipe($.eslint('./.eslintrc'))
 			.pipe($.filelog('eslint'))
 			.pipe($.eslint.format())
@@ -22,7 +22,7 @@ gulp.task('eslint', () => {
 });
 
 gulp.task('watch', () => {
-	gulp.watch(['./src/**/*.js' ], ['eslint']);
+	gulp.watch(['./src/**/*.js', './spec/**/*.js'], ['eslint']);
 });
 
 gulp.task('test', cb => {
