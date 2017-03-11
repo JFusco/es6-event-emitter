@@ -1,18 +1,24 @@
 # es6-event-emitter
-[![npm][npm-version-image]][npm-url]
-[![Build Status](https://travis-ci.org/JFusco/es6-event-emitter.svg?branch=master)](https://travis-ci.org/JFusco/es6-event-emitter)
-[![devDependency Status](https://david-dm.org/JFusco/es6-event-emitter/dev-status.svg)](https://david-dm.org/JFusco/es6-event-emitter#info=devDependencies)
 
-> Custom event/messaging system for JavaScript **es2015**.
+[![Build Status][build-image]][build-url]
+
+[![devDependency Status][dev-dep-image]][dev-dep-url]
+
+[![MIT][mit-image]][mit-url]
+[![npm][npm-version-image]][npm-url]
+
+> Custom, simple, extendable event/messaging system written in ES6
 
 ## Getting Started ##
 
-#### Install
-```
-npm install es6-event-emitter
+#### Installation
+From the root of your project.
+```sh
+npm install vue-popover --save
 ```
 
 #### Usage
+Simple implementation of emitter. See [api](#api) below.
 ```
 import Emitter from 'es6-event-emitter';
 
@@ -60,19 +66,50 @@ component.someAction();
 component.someOtherAction();
 ```
 
-## API ##
-* **`on(event:String, callback:Function)`** - registers a listener
-* **`off(event:String, callback:Function)`** - removes a registered listener from the event stack
-* **`trigger(event:String, ...args:*)`** - triggers a registered event with optional data
+<a name="api"></a>
+#### API
+* **[`on`](#on)**
+* **[`off`](#off)**
+* **[`trigger`](#trigger)**
+
+<a name="on"></a>
+##### on - **`on(event:String, callback:Function)`**
+Registers a listener
+```js
+component.on('component:action', action);
+```
+
+<a name="off"></a>
+##### off - **`off(event:String, callback:Function)`**
+Removes a registered listener from the event stack
+```js
+component.off('component:action', action);
+```
+
+<a name="trigger"></a>
+##### trigger - **`trigger(event:String, ...args:*)`**
+Triggers a registered event with optional data
+```js
+this.trigger('component:action');
+
+//-- With data
+this.trigger('component:action', {
+    foo: 'bar',
+    baz: 'buzz
+});
+```
+
 
 ## Tests ##
 ```
 npm test
 ```
-
-## License ##
-
- * [MIT License](http://www.opensource.org/licenses/mit-license.php)
  
-[npm-url]: https://npmjs.com/package/es6-event-emitter
+[build-image]: https://travis-ci.org/JFusco/es6-event-emitter.svg?branch=master
+[build-url]: https://travis-ci.org/JFusco/es6-event-emitter
+[mit-image]: https://img.shields.io/npm/l/es6-event-emitter.svg?style=flat-square
+[mit-url]: https://github.com/JFusco/es6-event-emitter/blob/master/LICENSE
 [npm-version-image]: https://img.shields.io/npm/v/npm.svg?maxAge=2592000
+[npm-url]: https://www.npmjs.com/package/es6-event-emitter
+[dev-dep-image]: https://david-dm.org/JFusco/es6-event-emitter/dev-status.svg
+[dev-dep-url]: https://david-dm.org/JFusco/es6-event-emitter?type=dev

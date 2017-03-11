@@ -13,11 +13,13 @@ module.exports = function (config) {
 		reporters: ['spec'],
 		webpack: {
 			module: {
-				loaders: [{
-					test: /\.js?$/,
-					exclude: /(node_modules)/,
-					loader: 'babel-loader'
-				}]
+				rules: [
+					{
+						test: /\.js?$/,
+						loader: 'babel-loader',
+						exclude: /(node_modules)/
+					}
+				]
 			}
 		},
 		webpackMiddleware: { noInfo: true }
