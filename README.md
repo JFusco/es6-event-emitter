@@ -40,7 +40,7 @@ export default class Component extends Emitter {
 	
         this.trigger('component:otheraction', {
             foo: 'bar',
-            baz: 'buzz
+            baz: 'buzz'
         });
     }
 }
@@ -95,7 +95,7 @@ this.trigger('component:action');
 //-- With data
 this.trigger('component:action', {
     foo: 'bar',
-    baz: 'buzz
+    baz: 'buzz'
 });
 ```
 
