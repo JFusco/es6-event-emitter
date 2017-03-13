@@ -3,14 +3,20 @@ var webpack = require('karma-webpack');
 module.exports = function (config) {
 	config.set({
 		frameworks: ['jasmine'],
-		files: ['spec/*-spec.js'],
-		plugins: [webpack, 'karma-jasmine', 'karma-phantomjs-launcher', 'karma-spec-reporter'],
+		files: ['__tests__/*-test.js'],
+		plugins: [webpack, 'karma-jasmine', 'karma-phantomjs-launcher', 'karma-spec-reporter', 'karma-coverage'],
 		browsers: ['PhantomJS'],
 		preprocessors: {
-			'spec/*-spec.js': ['webpack'],
-			'src/js/*.js': ['webpack']
+			'__tests__/*-test.js': ['webpack']
 		},
-		reporters: ['spec'],
+		coverageReporter: {
+			dir: './coverage',
+			reporters: [
+				{ type: 'lcov', subdir: 'reports' }
+			]
+		},
+		colors: true,
+		reporters: ['spec', 'coverage'],
 		webpack: {
 			module: {
 				rules: [
@@ -18,6 +24,12 @@ module.exports = function (config) {
 						test: /\.js?$/,
 						loader: 'babel-loader',
 						exclude: /(node_modules)/
+					},
+					{
+						enforce: 'pre',
+						test: /\.js/,
+						loader: 'isparta-loader',
+						exclude: /(__tests__|node_modules)/
 					}
 				]
 			}

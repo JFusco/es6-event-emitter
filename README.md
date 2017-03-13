@@ -101,6 +101,7 @@ this.trigger('component:action', {
 
 
 ## Tests ##
+View the [test coverage](https://jfusco.github.io/es6-event-emitter/coverage/reports/lcov-report/src/index.html)
 ```
 npm test
 ```
