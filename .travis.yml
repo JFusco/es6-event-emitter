@@ -1,9 +1,10 @@
 language: node_js
 node_js: '7'
 before_install:
-  - npm install -g eslint
-  - npm install -g babel-cli
-script: gulp eslint && npm test
+	- npm install -g eslint
+	- npm install -g babel-cli
+script:
+	- gulp eslint && npm test
 deploy:
   provider: npm
   email: jfusco311@gmail.com
