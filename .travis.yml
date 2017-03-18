@@ -1,14 +1,14 @@
 language: node_js
 node_js: '7'
 before_install:
-	- npm install -g eslint
-	- npm install -g babel-cli
+- npm install -g eslint
+- npm install -g babel-cli
 script:
-	- gulp eslint && npm test
+- gulp eslint && npm test
 deploy:
   provider: npm
   email: jfusco311@gmail.com
-  api_key:
-	secure: qNXxJz8+e9VUHSIDeePw2S1x4fCzs1duiQre82DsEcKWWunIfRyG930WiI2yIF0ZhP5X/iQ7Wh+3PfOVgpZeRQPCgpYbSo7KQfnrkDl1lIsba6sR1A7HerHzDo4ABYegWWD9Z4FRRFXxoWcBpJMu8EIvmN54c4dawmTigA4Mm5B4LIA91LJeaDaJYCXt/7SxkpieFyL3TuZ7aVT59xazwT8BT+usVyVTByh8b1McAEl8Uoq2if0k+cH31E99ioHo8Lax4d3MwD5dU3n2fRKvoDwMQukRWCxpkjMaqpAETFiDT7OhD0jb80eOw976eC5oaxtV+XyLj0WoXM5AdWiylj4CgiGPtRriaJWajMofp8EwwwmuuARlbONU0663mIOLTVD0W/iOoE7k3IfFqf18iGKZrVsB0hUBl2T4f44owZ7I897EOGMnWn3VD2l6gl9K8VwdwWZL9AUulvh5cyt0suv8hJxbU6RJvsKyFXd04OLAd2h52ahWT+LzwUWcR3s8dvJQMB6VEp92wIJ6EtkQw3lpfFVIkH+HY6ydz9Keii/xmLDhCA3lPMnpok7AuhkYAqOHZRPIOCVaP6xpwCVwbd3RhMNzSzP9Wg6sK7YybpcUCUWg82gEuZFbd1fydC/6hXeL2a84O7ScoDglUsfiSZ3p3zC56x8nojWe7+/Ggys=
   on:
     tags: true
+  api_key:
+    secure: qVlYorddaKnf9GipkQIxRdsLVYy2cMP/1aFJelCMYdXE0DXtyvBO/5MF/DqHT5n4/wK63Vfy6R32o0rUdYGEZHWeKmyLvrqDwu7U3G2mowW3Ip/bTjZA9D3YIsvdXGgAlD0s4Vlhk2Ra7NueAqj/5oGFlPtuYaxNd5E4UvA7OTV6ykNZlngvA28uFIM0ISdAMxJpxzUbNOlxMf1/t2DYIEshC4t42qy/cIUruk8UJ4y1ZBBr4Qxz+eKWLRU+xSZoNFhzTMsKr8SwmCoZK97BfDFBXQw4ujmJqpxaqKwlui7wth3U9kYiAfQ93WvBKlUDBmRJ5wHNuDe9/paukUN167Zxcq4Jsf0O4of0NLiHpOCZw4MsZiQjGg7w+LxqmHXBPzdHm9BQN9uq0Q8k/WIzKJlRUbwskSDnE8Hoi3T+fvW8Lxow+ooKi/OkVn9zQoQWG/J0TZ20togjGLl5mJg3GVxsyka1vHJNr1j+mSkWfVSW63vRiJuasV4/38F8BX27a9+Qb4ngYT6lvr0i90Uxuxv+6Uos2HWCy/rJ5u6mvLwEIOTyxWizbsXm+5Qy0+3+TsiZAnTgtajgHHSxvWLmk3CT5m2h8WK2xwBPgNcU3bH4VdjIBcxgkqBaDBjjzzzPIjXeZVwilAHaroXzAECkGkVsXocebhsLqwYKZ1o9BM8=
