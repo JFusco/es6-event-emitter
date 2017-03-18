@@ -1,11 +1,13 @@
 language: node_js
-node_js:
-  - "6"
-branches:
-  only:
-  - master
+node_js: '7'
 before_install:
   - npm install -g eslint
   - npm install -g babel-cli
-script:
-    - "gulp eslint && npm test"
+script: gulp eslint && npm test
+deploy:
+  provider: npm
+  email: jfusco311@gmail.com
+  api_key:
+	secure: qNXxJz8+e9VUHSIDeePw2S1x4fCzs1duiQre82DsEcKWWunIfRyG930WiI2yIF0ZhP5X/iQ7Wh+3PfOVgpZeRQPCgpYbSo7KQfnrkDl1lIsba6sR1A7HerHzDo4ABYegWWD9Z4FRRFXxoWcBpJMu8EIvmN54c4dawmTigA4Mm5B4LIA91LJeaDaJYCXt/7SxkpieFyL3TuZ7aVT59xazwT8BT+usVyVTByh8b1McAEl8Uoq2if0k+cH31E99ioHo8Lax4d3MwD5dU3n2fRKvoDwMQukRWCxpkjMaqpAETFiDT7OhD0jb80eOw976eC5oaxtV+XyLj0WoXM5AdWiylj4CgiGPtRriaJWajMofp8EwwwmuuARlbONU0663mIOLTVD0W/iOoE7k3IfFqf18iGKZrVsB0hUBl2T4f44owZ7I897EOGMnWn3VD2l6gl9K8VwdwWZL9AUulvh5cyt0suv8hJxbU6RJvsKyFXd04OLAd2h52ahWT+LzwUWcR3s8dvJQMB6VEp92wIJ6EtkQw3lpfFVIkH+HY6ydz9Keii/xmLDhCA3lPMnpok7AuhkYAqOHZRPIOCVaP6xpwCVwbd3RhMNzSzP9Wg6sK7YybpcUCUWg82gEuZFbd1fydC/6hXeL2a84O7ScoDglUsfiSZ3p3zC56x8nojWe7+/Ggys=
+  on:
+    tags: true

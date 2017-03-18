@@ -1,60 +1,66 @@
 {
-  "name": "es6-event-emitter",
-  "version": "1.7.4",
-  "description": "Custom, simple, extendable event/messaging system written in ES6",
-  "main": "dist/emitter.js",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JFusco/es6-event-emitter"
-  },
-  "author": {
-    "name": "Joe Fusco",
-    "email": "jfusco311@gmail.com"
-  },
-  "keywords": [
-    "event",
-    "pub/sub",
-    "publish",
-    "subscribe",
-    "observer",
-    "emitter",
-    "es2015",
-    "es6",
-    "es6 events"
-  ],
-  "devDependencies": {
-    "babel-core": "~6.23.1",
-    "babel-eslint": "~7.1.1",
-    "babel-loader": "~6.4.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-stage-0": "^6.22.0",
-    "gulp": "~3.9.1",
-    "gulp-eslint": "~3.0.1",
-    "gulp-filelog": "~0.4.1",
-    "gulp-load-plugins": "~1.5.0",
-    "gulp-util": "~3.0.8",
-    "gulp-watch": "~4.3.11",
-    "isparta-loader": "^2.0.0",
-    "istanbul": "^0.4.5",
-    "istanbul-instrumenter-loader": "^2.0.0",
-    "jasmine-core": "^2.5.2",
-    "karma": "^1.5.0",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "karma-spec-reporter": "~0.0.30",
-    "karma-webpack": "^2.0.2",
-    "minimist": "~1.2.0",
-    "phantomjs-polyfill": "~0.0.2",
-    "phantomjs-prebuilt": "~2.1.14",
-    "run-sequence": "^1.2.1",
-    "webpack": "^2.2.1"
-  },
-  "scripts": {
-    "test": "karma start --single-run --no-auto-watch",
-    "build": "babel -d dist/ src/",
-    "prepublish": "npm run build"
-  }
+	"name": "es6-event-emitter",
+	"version": "1.7.4",
+	"description": "Custom, simple, extendable event/messaging system written in ES6",
+	"main": "dist/emitter.js",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JFusco/es6-event-emitter"
+	},
+	"engines": {
+		"node": ">=7.0.0"
+	},
+	"author": {
+		"name": "Joe Fusco",
+		"email": "jfusco311@gmail.com"
+	},
+	"scripts": {
+		"version": "npm run build && git add .",
+		"postversion": "git push origin master --tags",
+		"test": "karma start --single-run --no-auto-watch",
+		"lint": "eslint --fix --color --debug --ignore-path .eslintignore ./src/*.js",
+		"build": "npm run lint && babel -d dist/ src/"
+	},
+	"devDependencies": {
+		"babel-core": "^6.23.1",
+		"babel-eslint": "^7.1.1",
+		"babel-loader": "^6.4.1",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"babel-preset-es2015": "^6.22.0",
+		"babel-preset-stage-0": "^6.22.0",
+		"eslint": "^3.18.0",
+		"gulp": "^3.9.1",
+		"gulp-eslint": "^3.0.1",
+		"gulp-filelog": "^0.4.1",
+		"gulp-load-plugins": "^1.5.0",
+		"gulp-util": "^3.0.8",
+		"gulp-watch": "^4.3.11",
+		"isparta-loader": "^2.0.0",
+		"istanbul": "^0.4.5",
+		"istanbul-instrumenter-loader": "^2.0.0",
+		"jasmine-core": "^2.5.2",
+		"karma": "^1.5.0",
+		"karma-coverage": "^1.1.1",
+		"karma-jasmine": "^1.1.0",
+		"karma-phantomjs-launcher": "^1.0.4",
+		"karma-spec-reporter": "^0.0.30",
+		"karma-webpack": "^2.0.3",
+		"minimist": "^1.2.0",
+		"phantomjs-polyfill": "^0.0.2",
+		"phantomjs-prebuilt": "^2.1.14",
+		"run-sequence": "^1.2.1",
+		"webpack": "^2.2.1"
+	},
+	"keywords": [
+		"event",
+		"pub/sub",
+		"publish",
+		"subscribe",
+		"observer",
+		"emitter",
+		"es2015",
+		"es6",
+		"es6 events"
+	]
 }
