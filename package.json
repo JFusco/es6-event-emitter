@@ -1,6 +1,6 @@
 {
   "name": "es6-event-emitter",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Custom, simple, extendable event/messaging system written in ES6",
   "main": "dist/emitter.js",
   "license": "MIT",
