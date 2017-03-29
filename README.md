@@ -14,7 +14,7 @@
 #### Installation
 From the root of your project.
 ```sh
-npm install vue-popover --save
+npm install es6-event-emitter --save
 ```
 
 #### Usage
@@ -26,18 +26,18 @@ export default class Component extends Emitter {
 	constructor(){
 		super();
 	}
-	
+
 	//-- Trigger
 	someAction(){
 		...
-	
+
 		this.trigger('component:action');
 	}
-	
+
 	//-- Trigger with data
 	someOtherAction(){
 		...
-	
+
         this.trigger('component:otheraction', {
             foo: 'bar',
             baz: 'buzz'
@@ -105,7 +105,7 @@ View the [test coverage](https://jfusco.github.io/es6-event-emitter/coverage/rep
 ```
 npm test
 ```
- 
+
 [build-image]: https://travis-ci.org/JFusco/es6-event-emitter.svg?branch=master
 [build-url]: https://travis-ci.org/JFusco/es6-event-emitter
 [mit-image]: https://img.shields.io/npm/l/es6-event-emitter.svg?style=flat-square
