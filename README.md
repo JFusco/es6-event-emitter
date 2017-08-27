@@ -70,7 +70,9 @@ component.someOtherAction();
 #### API
 * **[`on`](#on)**
 * **[`off`](#off)**
+* **[`once`](#once)**
 * **[`trigger`](#trigger)**
+* **[`destroy`](#destroy)**
 
 <a name="on"></a>
 ##### on - **`on(event:String, callback:Function)`**
@@ -86,6 +88,13 @@ Removes a registered listener from the event stack
 component.off('component:action', action);
 ```
 
+<a name="once"></a>
+##### once - **`once(event:String, callback:Function)`**
+Registers a listener that will only fire once no matter how many times you try to trigger
+```js
+component.once('component:action', action);
+```
+
 <a name="trigger"></a>
 ##### trigger - **`trigger(event:String, ...args:*)`**
 Triggers a registered event with optional data
@@ -99,6 +108,12 @@ this.trigger('component:action', {
 });
 ```
 
+<a name="destroy"></a>
+##### destroy - **`destroy()`**
+Destroys the entire event emitter
+```js
+component.destroy();
+```
 
 ## Tests ##
 View the [test coverage](https://jfusco.github.io/es6-event-emitter/coverage/reports/lcov-report/src/index.html)
