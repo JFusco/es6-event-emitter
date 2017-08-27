@@ -105,4 +105,22 @@ describe('Emitter destroying', () => {
 		stub.triggerTestEvent();
 		stub.triggerAnotherTestEvent();
 	});
+
+  it('should destroy the entire emitter', () => {
+    const func = () => {};
+
+    stub.on('eventone', func);
+
+    expect(stub.eventLength).toBe(1);
+
+    stub.destroy();
+
+    expect((() => {
+        stub.events;
+      })
+    ).toThrowError(TypeError);
+
+    expect(stub.event).not.toEqual(jasmine.any(Object));
+    expect(stub.eventLength).toBe(0);
+  });
 });

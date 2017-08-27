@@ -36,14 +36,17 @@ describe('Emitter registration', () => {
 	});
 
 	it('should check if event contains callback', () => {
-		const func = () => {};
+		const cb = () => {};
 
-		stub.on('testevent', func);
+		stub.on('testevent', cb);
 
-		expect(func).toEqual(jasmine.any(Function));
+		expect(cb).toEqual(jasmine.any(Function));
 
 		expect(stub.events).toEqual(jasmine.objectContaining({
-			testevent: [func]
+			testevent: [{
+        cb,
+        once: false
+      }]
 		}));
 	});
 });

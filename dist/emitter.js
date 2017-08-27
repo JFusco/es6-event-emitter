@@ -34,6 +34,8 @@ var Emitter = function () {
 	(0, _createClass3.default)(Emitter, [{
 		key: 'on',
 		value: function on(event, cb) {
+			var once = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
 			if (typeof cb === 'undefined') {
 				throw new Error('You must provide a callback method.');
 			}
@@ -43,7 +45,10 @@ var Emitter = function () {
 			}
 
 			this.events[event] = this.events[event] || [];
-			this.events[event].push(cb);
+			this.events[event].push({
+				cb: cb,
+				once: once
+			});
 
 			this.eventLength++;
 
@@ -67,7 +72,7 @@ var Emitter = function () {
 			var listeners = this.events[event];
 
 			listeners.forEach(function (v, i) {
-				if (v === cb) {
+				if (v.cb === cb) {
 					listeners.splice(i, 1);
 				}
 			});
@@ -94,16 +99,33 @@ var Emitter = function () {
 			}
 
 			var listeners = this.events[event];
+			var onceListeners = [];
 
 			if (typeof listeners !== 'undefined') {
-				listeners = listeners.slice(0);
+				listeners.forEach(function (v, k) {
+					v.cb.apply(_this, args);
 
-				listeners.forEach(function (v) {
-					v.apply(_this, args);
+					if (v.once) onceListeners.unshift(k);
+
+					onceListeners.forEach(function (v, k) {
+						listeners.splice(k, 1);
+					});
 				});
 			}
 
 			return this;
+		}
+	}, {
+		key: 'once',
+		value: function once(event, cb) {
+			this.on(event, cb, true);
+		}
+	}, {
+		key: 'destroy',
+		value: function destroy() {
+			emitter.delete(this);
+
+			this.eventLength = 0;
 		}
 	}, {
 		key: 'events',

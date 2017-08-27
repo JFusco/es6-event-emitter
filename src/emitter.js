@@ -1,5 +1,3 @@
-'use strict';
-
 const emitter = new WeakMap();
 
 class Emitter {
@@ -11,7 +9,7 @@ class Emitter {
 		this.eventLength = 0;
 	}
 
-	on(event, cb){
+	on(event, cb, once = false){
 		if(typeof cb === 'undefined') {
 			throw new Error('You must provide a callback method.');
 		}
@@ -21,7 +19,10 @@ class Emitter {
 		}
 
 		this.events[event] = this.events[event] || [];
-		this.events[event].push(cb);
+		this.events[event].push({
+      cb,
+      once
+    });
 
 		this.eventLength++;
 
@@ -44,7 +45,7 @@ class Emitter {
 		const listeners = this.events[event];
 
 		listeners.forEach((v, i) => {
-			if(v === cb) {
+			if(v.cb === cb) {
 				listeners.splice(i, 1);
 			}
 		});
@@ -63,18 +64,33 @@ class Emitter {
 			throw new Error('You must provide an event to trigger.');
 		}
 
-		let listeners = this.events[event];
+		const listeners = this.events[event];
+    const onceListeners = [];
 
 		if(typeof listeners !== 'undefined') {
-			listeners = listeners.slice(0);
+			listeners.forEach((v, k) => {
+        v.cb.apply(this, args);
 
-			listeners.forEach((v) => {
-				v.apply(this, args);
+        if(v.once) onceListeners.unshift(k);
+
+        onceListeners.forEach((v, k) => {
+          listeners.splice(k, 1);
+        });
 			});
 		}
 
 		return this;
 	}
+
+  once(event, cb){
+    this.on(event, cb, true);
+  }
+
+  destroy(){
+    emitter.delete(this);
+
+    this.eventLength = 0;
+  }
 
 	get events(){
 		return emitter.get(this).events;

@@ -61,7 +61,6 @@ describe('Emitter triggering', () => {
 			called = true;
 
 			expect(called).toBeTruthy();
-
 			expect(data).toBeDefined();
 
 			expect(data).toEqual(jasmine.objectContaining({
@@ -74,4 +73,19 @@ describe('Emitter triggering', () => {
 
 		stub.emitWithData();
 	});
+
+  it('should only fire once', (done) => {
+    let val = 0;
+
+    stub.once('testevent', () => {
+      val++;
+
+      done();
+    });
+
+    stub.emit();
+    stub.emit();
+
+    expect(val).toBe(1);
+  });
 });
