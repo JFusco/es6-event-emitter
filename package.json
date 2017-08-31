@@ -8,10 +8,6 @@
     "type": "git",
     "url": "https://github.com/JFusco/es6-event-emitter"
   },
-  "engines": {
-    "node": ">=7.7.0 <=8.1.x",
-    "npm": "~5.x.x"
-  },
   "author": {
     "name": "Joe Fusco",
     "email": "jfusco311@gmail.com"
