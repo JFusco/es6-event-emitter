@@ -2,7 +2,7 @@
 
 [![Build Status][build-image]][build-url]
 
-[![devDependency Status][dev-dep-image]][dev-dep-url]
+[![devDependencies Status](https://david-dm.org/wkasel/es6-event-emitter/dev-status.svg)](https://david-dm.org/wkasel/es6-event-emitter?type=dev)
 
 [![MIT][mit-image]][mit-url]
 [![npm][npm-version-image]][npm-url]
